@@ -2,13 +2,16 @@
   text-align: center; 
   padding: 50px;
   margin: auto;
-  border: 2px solid green;
-  background-color: aquamarine;
+  border: 2px solid FFE45E;
+  background-color: #F9F9F9;
 }
 .player1, .player2 {
   border: 5px;
-  background-color: rgb(153, 72, 47);
+  background-color: #7FC8F8;
   padding: 70px;
+}
+.active {
+  background-color: #5AA9E6;
 }
 .rollDice {
   text-align: center;

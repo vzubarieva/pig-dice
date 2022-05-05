@@ -33,23 +33,34 @@ Game.prototype.hold = function (player1, player2) {
   } else if (this.currentPlayer === 1) {
     this.player1.totalPoints += this.activeTurn; //add active turn points to total points
     this.currentPlayer = 2; //switch current player
-    this.roll(); //player two roll
+    this.activeTurn = 0;
     console.log(this.currentPlayer);
   } else if (this.currentPlayer === 2) {
     this.player2.totalPoints += this.activeTurn; //add active turn points to total points
     this.currentPlayer = 1; //switch current player
-    this.roll(); //player 1 roll
+    this.activeTurn = 0;
     console.log(this.currentPlayer);
   }
 }
 
 Game.prototype.computerPlay = function () {
-  for (let i = 0; i <= 2; i++) {
+  this.activeTurn = 0;
+  for (let i = 0; i < 2; i++) {
     this.roll();
     this.player2.totalPoints += this.activeTurn;
   }
 }
 //UI
+
+function updateActivePlayer(currentPlayer) {
+  if (currentPlayer === 2) {
+    $(".player1").removeClass('active')
+    $(".player2").addClass('active')
+  } else {
+    $(".player2").removeClass('active')
+    $(".player1").addClass('active')
+  }
+}
 
 $(document).ready(function () {
   $("#2players").click(function () {
@@ -73,11 +84,15 @@ $(document).ready(function () {
       newGame.roll();
       $(".currentRoll").text(newGame.dice);
       $(".round-score").text(newGame.activeTurn);
+      updateActivePlayer(newGame.currentPlayer);
     })
     $("#hold").click(function () {
       newGame.hold();
       $(".p1-totalScore").text(player1.totalPoints);
       $(".p2-totalScore").text(player2.totalPoints);
+      $(".currentRoll").text(newGame.dice);
+      $(".round-score").text(newGame.activeTurn);
+      updateActivePlayer(newGame.currentPlayer);
     })
   })
 
@@ -94,11 +109,13 @@ $(document).ready(function () {
       newGame.roll();
       $(".currentRoll").text(newGame.dice);
       $(".round-score").text(newGame.activeTurn);
+      updateActivePlayer(newGame.currentPlayer);
     })
     $("#hold").click(function () {
       newGame.hold();
       $(".p1-totalScore").text(player1.totalPoints);
       $(".p2-totalScore").text(player2.totalPoints);
+      updateActivePlayer(newGame.currentPlayer);
     })
   })
 })
