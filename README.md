@@ -1,4 +1,4 @@
-# _Programming language suggester_
+# _Pig Dice game_
 
 #### By _**Viktoriia Zubarieva and Ryan Broadsword**_
 ## Description
