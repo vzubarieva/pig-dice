@@ -1,9 +1,15 @@
 .container {
   text-align: center; 
-  padding: 10px;
+  padding: 50px;
   margin: auto;
+  border: 2px solid green;
+  background-color: aquamarine;
 }
-
+.player1, .player2 {
+  border: 5px;
+  background-color: rgb(153, 72, 47);
+  padding: 70px;
+}
 .rollDice {
   text-align: center;
 }
