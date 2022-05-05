@@ -7,3 +7,11 @@
 .rollDice {
   text-align: center;
 }
+
+.newGame1 {
+  display: none; 
+}
+
+.newGame2 {
+  display: none; 
+}
